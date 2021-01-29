@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+<body ng-app="NameCalculator">
+    <div ng-controller="NameCalculatorCtrl">
+        <h2>Name value Calculator</h2>
+
+        <input type="text" ng-model="name" ng-keyup="display()"><br>
+        The name value is {{nameVal}} 
+    </div>
+
+
+
+<script>
+    var app = angular.module("NameCalculator",[]);
+    app.controller("NameCalculatorCtrl", function($scope){
+        $scope.name = "";
+        $scope.nameVal=0;
+
+        $scope.display = function (){
+
+            var totalvalue=calvalue($scope.name);
+            $scope.nameVal=totalvalue;
+            console.log(totalvalue);
+           
+        }; 
+        function calvalue(string) {
+            var totalStringValue =0;   
+            for(i=0;i<string.length;i++){
+                totalStringValue+=string.charCodeAt(i);
+            }
+            return totalStringValue;
+        }
+
+    });
+</script>
+</body>
+</html>
