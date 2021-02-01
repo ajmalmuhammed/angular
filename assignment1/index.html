@@ -15,8 +15,8 @@
   </style>
 </head>
 
-<body ng-app="lunchcheck">
-  <div class="container" ng-controller="lunchcheckCtrl">
+<body ng-app="LunchCheck">
+  <div class="container" ng-controller="LunchCheckController">
     <h1>Lunch Checker</h1>
 
     <div class="form-group" ">
@@ -33,34 +33,8 @@
   </div>
 
 
-  <script>
-    var app = angular.module("lunchcheck", []);
-    app.controller("lunchcheckCtrl", function ($scope) {
-      $scope.output = "";
-      $scope.values="";
+   
 
-
-      $scope.display = function () {
-        console.log("values:")
-        console.log($scope.values);
-        var noOfItems = calNos($scope.values);
-        $scope.output = noOfItems;
-        
-
-      };
-      function calNos(string) {
-        var newOutput="";
-        if( (string.split(',').length) >3)
-          newOutput = "Too much!";
-        else 
-          newOutput = "Enjoy!"
-        
-        return newOutput;
-
-      }
-
-    });
-  </script>
 </body>
 
 </html>
