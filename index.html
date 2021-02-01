@@ -7,33 +7,34 @@
         <h2>Name value Calculator</h2>
 
         <input type="text" ng-model="name" ng-keyup="display()"><br>
-        The name value is {{nameVal}} 
+        The name value is {{nameVal}}
     </div>
 
 
 
-<script>
-    var app = angular.module("NameCalculator",[]);
-    app.controller("NameCalculatorCtrl", function($scope){
-        $scope.name = "";
-        $scope.nameVal=0;
+    <script>
+        var app = angular.module("NameCalculator", []);
+        app.controller("NameCalculatorCtrl", function ($scope) {
+            $scope.name = "";
+            $scope.nameVal = 0;
 
-        $scope.display = function (){
+            $scope.display = function () {
 
-            var totalvalue=calvalue($scope.name);
-            $scope.nameVal=totalvalue;
-            console.log(totalvalue);
-           
-        }; 
-        function calvalue(string) {
-            var totalStringValue =0;   
-            for(i=0;i<string.length;i++){
-                totalStringValue+=string.charCodeAt(i);
+                var totalvalue = calvalue($scope.name);
+                $scope.nameVal = totalvalue;
+                console.log(totalvalue);
+
+            };
+            function calvalue(string) {
+                var totalStringValue = 0;
+                for (i = 0; i < string.length; i++) {
+                    totalStringValue += string.charCodeAt(i);
+                }
+                return totalStringValue;
             }
-            return totalStringValue;
-        }
 
-    });
-</script>
+        });
+    </script>
 </body>
+
 </html>

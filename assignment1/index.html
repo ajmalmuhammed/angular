@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Lunch Checker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+  <style>
+    .message {
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body ng-app="lunchcheck">
+  <div class="container" ng-controller="lunchcheckCtrl">
+    <h1>Lunch Checker</h1>
+
+    <div class="form-group" ">
+             <input ng-model="values" id=" lunch-menu" type="text" placeholder="list comma separated dishes you usually have for lunch"
+      class="form-control">
+    </div>
+    <div class="form-group">
+      <button ng-click="display()"class="btn btn-default">Check If Too Much</button>
+    </div>
+    <div class="form-group message">
+      {{output}}
+      <!-- Your message can go here. -->
+    </div>
+  </div>
+
+
+  <script>
+    var app = angular.module("lunchcheck", []);
+    app.controller("lunchcheckCtrl", function ($scope) {
+      $scope.output = "";
+      $scope.values="";
+
+
+      $scope.display = function () {
+        console.log("values:")
+        console.log($scope.values);
+        var noOfItems = calNos($scope.values);
+        $scope.output = noOfItems;
+        
+
+      };
+      function calNos(string) {
+        var newOutput="";
+        if( (string.split(',').length) >3)
+          newOutput = "Too much!";
+        else 
+          newOutput = "Enjoy!"
+        
+        return newOutput;
+
+      }
+
+    });
+  </script>
+</body>
+
+</html>
