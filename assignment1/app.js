@@ -32,4 +32,4 @@ function LunchCheckController ($scope) {
     return newOutput;
 
 }
-}}());
+}})();
