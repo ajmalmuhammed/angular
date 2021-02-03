@@ -16,6 +16,7 @@ function LunchCheckController ($scope) {
     console.log("values:")
     console.log($scope.values);
     var noOfItems = calNos($scope.values);
+
     $scope.output = noOfItems;
     
 
@@ -24,12 +25,14 @@ function LunchCheckController ($scope) {
     var newOutput="";
     if( (string.split(',').length) >3)
       newOutput = "Too much!";
-    else if((string.split(',').length) <3)
+    else if((string.split(',').length) < 3 && (string.split(',').length)>1 )
       newOutput = "Enjoy!"
     else 
       newOutput = "Please enter data first"
     
+    console.log(newOutput);
     return newOutput;
+   
 
 }
 }})();
