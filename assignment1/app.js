@@ -1,3 +1,4 @@
+
 ( function () {
 
 'use strict';
@@ -23,10 +24,12 @@ function LunchCheckController ($scope) {
     var newOutput="";
     if( (string.split(',').length) >3)
       newOutput = "Too much!";
-    else 
+    else if((string.split(',').length) <3)
       newOutput = "Enjoy!"
+    else 
+      newOutput = "Please enter data first"
     
     return newOutput;
 
 }
-}});
+}}());
